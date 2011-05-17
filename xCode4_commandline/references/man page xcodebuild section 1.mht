@@ -1,0 +1,1204 @@
+Content-Type: multipart/related; start=<op.mhtml.1304062850092.4169a3557c54927f@10.28.9.6>; boundary=----------RDzpsbv0ZOispsVQlgPnxH
+Content-Location: http://www.manpagez.com/man/1/xcodebuild/
+Subject: =?utf-8?Q?man=20page=20xcodebuild=20section=201?=
+MIME-Version: 1.0
+
+------------RDzpsbv0ZOispsVQlgPnxH
+Content-Disposition: inline; filename=default.htm
+Content-Type: text/html; name=default.htm
+Content-ID: <op.mhtml.1304062850092.4169a3557c54927f@10.28.9.6>
+Content-Location: http://www.manpagez.com/man/1/xcodebuild/
+Content-Transfer-Encoding: Quoted-Printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+	<title>man page xcodebuild section 1</title>
+	 <link href=3D"/main.css" rel=3D"stylesheet" type=3D"text/css">
+</head>
+<body>
+<div id=3D"container">
+<div id=3D"top">
+	<span class=3D"title">
+	manpagez: man (manual) pages &amp; more
+	</span><br />
+	<span class=3D"subtitle">
+	man xcodebuild(1)
+	</span>
+</div>
+<div id=3D"toplink">
+	<table width=3D"100%" align=3D"center" cellpadding=3D"0">
+		<tr>
+						<td width=3D"200">
+				<table>
+					<tr>
+						<td colspan=3D2>man pages</td>
+					</tr>
+					<tr>
+						<td>
+							By Section
+						</td><td>
+							<select onchange=3D"location =3D this.options[this.selectedIndex]=
+.value">
+								<option selected value=3D"">Choose...</option>
+								<option value=3D"/man/1/">1</option><option value=3D"/man/2/">2<=
+/option><option value=3D"/man/3/">3</option><option value=3D"/man/4/">4<=
+/option><option value=3D"/man/5/">5</option><option value=3D"/man/6/">6<=
+/option><option value=3D"/man/7/">7</option><option value=3D"/man/8/">8<=
+/option><option value=3D"/man/9/">9</option><option value=3D"/man/l/">l<=
+/option><option value=3D"/man/n/">n</option>							</select>	=
+
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Alphabetically
+						</td><td>
+							<select onchange=3D"location =3D this.options[this.selectedIndex]=
+.value">
+								<option selected value=3D"">Choose...</option>
+								<option value=3D"/man/alpha.php?A">A</option><option value=3D"/m=
+an/alpha.php?B">B</option><option value=3D"/man/alpha.php?C">C</option><=
+option value=3D"/man/alpha.php?D">D</option><option value=3D"/man/alpha.=
+php?E">E</option><option value=3D"/man/alpha.php?F">F</option><option va=
+lue=3D"/man/alpha.php?G">G</option><option value=3D"/man/alpha.php?H">H<=
+/option><option value=3D"/man/alpha.php?I">I</option><option value=3D"/m=
+an/alpha.php?J">J</option><option value=3D"/man/alpha.php?K">K</option><=
+option value=3D"/man/alpha.php?L">L</option><option value=3D"/man/alpha.=
+php?M">M</option><option value=3D"/man/alpha.php?N">N</option><option va=
+lue=3D"/man/alpha.php?O">O</option><option value=3D"/man/alpha.php?P">P<=
+/option><option value=3D"/man/alpha.php?Q">Q</option><option value=3D"/m=
+an/alpha.php?R">R</option><option value=3D"/man/alpha.php?S">S</option><=
+option value=3D"/man/alpha.php?T">T</option><option value=3D"/man/alpha.=
+php?U">U</option><option value=3D"/man/alpha.php?V">V</option><option va=
+lue=3D"/man/alpha.php?W">W</option><option value=3D"/man/alpha.php?X">X<=
+/option><option value=3D"/man/alpha.php?Y">Y</option><option value=3D"/m=
+an/alpha.php?Z">Z</option><option value=3D"/man/alpha.php?0">Other</opti=
+on>							</select>	=
+
+						</td>
+					</tr>
+				</table>
+		=
+
+			<td>
+				<table>
+					<tr>
+						<td colspan=3D2>Other versions of<br />xcodebuild</td>
+					</tr>
+					<tr>
+						<td>
+						<select onchange=3D"location =3D this.options[this.selectedIndex].=
+value">
+								<option selected value=3D"">Choose...</option>
+								<option value=3D"/man/1/xcodebuild/osx-10.3.php">Mac OS X 10.3</=
+option><option value=3D"/man/1/xcodebuild/osx-10.4.php">Mac OS X 10.4</o=
+ption><option value=3D"/man/1/xcodebuild/osx-10.5.php">Mac OS X 10.5</op=
+tion>							</select>	=
+
+						</td>
+					</tr>
+				</table>
+			</td>
+						<td align=3D"right">
+				<script type=3D"text/javascript"><!--
+				google_ad_client =3D "pub-1710183999564190";
+				/* 468x60, created 9/4/08 */
+				google_ad_slot =3D "8014332598";
+				google_ad_width =3D 468;
+				google_ad_height =3D 60;
+				//-->
+				</script>
+				<script type=3D"text/javascript"
+				src=3D"http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</td>
+		</tr>
+	</table>
+</div>
+<div id=3D"contentmenu">
+<table width=3D"100%" cellpadding=3D"0">
+	<tr>
+		<td>
+			<a href=3D"/">Home</a> | =
+
+			<a href=3D"/html/">html</a> | =
+
+			<a href=3D"/info/">info</a> | =
+
+			<a href=3D"/man/">man</a>
+		</td>
+		<td align=3D"right" valign=3D"middle">
+			&nbsp;<br/>
+			<form action=3D"http://www.google.com/cse" id=3D"cse-search-box">
+			  <div>
+				<input type=3D"hidden" name=3D"cx" value=3D"015669413821031485611:a_=
+hm66tboz8" />
+				<input type=3D"hidden" name=3D"ie" value=3D"UTF-8" />
+				<input type=3D"text" name=3D"q" size=3D"31" />
+				<input type=3D"submit" name=3D"sa" value=3D"Search" />
+			  </div>
+			</form>
+			<script type=3D"text/javascript" src=3D"http://www.google.com/coop/cs=
+e/brand?form=3Dcse-search-box&lang=3Den"></script>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id=3D"content">
+<pre>
+xcodebuild(1)             BSD General Commands Manual            xcodebu=
+ild(1)
+
+
+</pre>
+<h2>NAME</h2><pre>
+     <b>xcodebuild</b> -- build Xcode projects
+
+
+</pre>
+<h2>SYNOPSIS</h2><pre>
+     <b>xcodebuild</b> [<b>-project</b> <i>projectname</i>] [<b>-activet=
+arget</b>] [<b>-alltargets</b>]
+                [<b>-target</b> <i>targetname</i>] [<b>-parallelizeTarge=
+ts</b>]
+                [<b>-activeconfiguration</b>] [<b>-configuration</b> <i>=
+configurationname</i>]
+                [<b>-sdk</b> <i>&lt;sdkfullpath&gt;</i> | <i>&lt;sdkname=
+&gt;</i>] [<i>buildaction</i> ...]
+                [<i>setting</i>=3D<i>value</i> ...] [-<i>default</i>=3D<=
+i>value</i> ...]
+     <b>xcodebuild</b> <b>-version</b> [<b>-sdk</b> [<i>&lt;sdkfullpath&=
+gt;</i> | <i>&lt;sdkname&gt;</i> <i>[&lt;single</i> <i>item&gt;]]</i>]
+     <b>xcodebuild</b> <b>-find</b> <i>&lt;binary&gt;</i> [<b>-sdk</b> <=
+i>&lt;sdkfullpath&gt;</i> | <i>&lt;sdkname&gt;</i>]
+     <b>xcodebuild</b> <b>-showsdks</b>
+     <b>xcodebuild</b> <b>-list</b>
+     <b>xcodebuild</b> <b>-help</b>
+
+
+</pre>
+<h2>DESCRIPTION</h2><pre>
+     <b>xcodebuild</b> builds a target contained in an Xcode project.
+
+   <b>Usage</b>
+     Run <b>xcodebuild</b> from the directory containing your project (i=
+.e. the
+     directory containing the <i>projectname</i>.xcodeproj package). If =
+you have
+     multiple projects in the this directory you will need to use <b>-pr=
+oject</b> to
+     indicate which project should be built.
+
+     By default, <b>xcodebuild</b> builds the first target listed in you=
+r project,
+     with the default build configuration. The order of the targets is a=
+ prop-
+     erty of the project and is the same for all users of the project. T=
+he
+     active target and active build configuration properties are set for=
+ each
+     user of the project and can vary from user to user.
+
+   <b>Options</b>
+     <b>-project</b> <i>projectname</i>
+           Build the project specified by <i>projectname</i>.  Required =
+if there are
+           multiple project files in the same directory.
+
+     <b>-activetarget</b>
+           Builds the user's active target.
+
+     <b>-alltargets</b>
+           Build all the targets in the project.
+
+     <b>-target</b> <i>targetname</i>
+           Build the target specified by <i>targetname</i>.
+
+     <b>-nodependencies</b>
+           Only perform the action on the specified target(s), not on an=
+y tar-
+           gets upon which they depend.  This option only applies to the=
+
+           'clean' action.
+
+     <b>-parallelizeTargets</b>
+           Build independent targets in parallel when possible.  With di=
+strib-
+           uted builds or multiprocessor machines, this can cause projec=
+ts
+           with many simple targets to build substantially faster.  This=
+
+           option only applies to targets with target dependencies.
+
+     <b>-activeconfiguration</b>
+           Use the user's active build configuration when building the t=
+arget.
+
+     <b>-configuration</b> <i>configurationname</i>
+           Use the build configuration specified by <i>configurationname=
+</i> when
+           building the target.
+
+     <b>-sdk</b> <i>&lt;sdkfullpath&gt;</i> | <i>&lt;sdkname&gt;</i>
+           Build an Xcode project against the specified SDK, using build=
+ tools
+           appropriate for that SDK. The argument may be an absolute pat=
+h to
+           an SDK, or the canonical name of an SDK.
+
+     <b>-showsdks</b>
+           Lists all available SDKs, including their canonical names sui=
+table
+           for use with -sdk.
+
+     <i>buildaction</i> ...
+           Specify a build action (or actions) to perform on the target.=
+
+           Available build actions are:
+
+           build       Build the target in the build root (SYMROOT).  Th=
+is is
+                       the default build action.
+
+           installsrc  Copy the source of the project to the source root=
+
+                       (SRCROOT).
+
+           install     Build the target and install it into the target's=
+
+                       installation directory in the distribution root
+                       (DSTROOT).
+
+           clean       Remove build products and intermediate files from=
+ the
+                       build root (SYMROOT).
+
+     <i>setting</i>=3D<i>value</i>
+           Set the build setting <i>setting</i> to <i>value</i>.
+
+     <b>-find</b> <i>binary</i> <b>-sdk</b> <i>&lt;sdkfullpath&gt;</i> |=
+ <i>&lt;sdkname&gt;</i>
+           Print the absolute path to <i>binary</i> in the context of <i=
+>sdk</i>.  If the
+           -sdk argument is not provided, find uses the value of the bui=
+ld
+           setting SDKROOT, if set. Returns EINVAL if a valid SDK could =
+not be
+           determined.  The search order is the usr/bin directory in the=
+ SDK,
+           the bin directory in the SDK, then each of the paths specifie=
+d by
+           the PATH environment variable.  Returns ENOENT if the request=
+ed
+           binary could not be located in any of the searched directorie=
+s.
+
+           NOTE: <i>'xcrun</i> <i>-find'</i> is preferred because it cac=
+hes the resulting
+           find; xcrun uses xcodebuild to populate its cache.
+
+     <b>-version</b>
+           Display version information.  When used in conjunction with -=
+sdk,
+           the version of the specified SDK is displayed, or all SDKs if=
+ -sdk
+           is given no value.  Additionally, a single line of the report=
+ed
+           version information may be returned if specified.
+
+     -<i>default</i>=3D<i>value</i>
+           Set the user default <i>default</i> to <i>value</i>.
+
+     <b>-list</b>
+           Lists the targets in the project. Does not initiate a build.
+
+     <b>-nodistribute</b>
+           Disable distributed building. Overrides the distributed build=
+ set-
+           ting stored in the user defaults by the Xcode preferences pan=
+el.
+
+     <b>-bonjourbuildhosts</b>
+           Enable distributed building and search for build machines usi=
+ng
+           Bonjour. Build machines are added dynamically during the buil=
+d as
+           they are discovered. May be used alone or in conjunction with=
+
+           -buildhosts or -buildhostsfile.
+
+     <b>-nobonjourbuildhosts</b>
+           Do not search for build machines using Bonjour. Overrides the=
+ Bon-
+           jour distributed build setting stored in the user defaults by=
+ the
+           Xcode preferences panel.
+
+     <b>-buildhosts</b> <i>hostlist</i>
+           Enable distributed building and set the list of build machine=
+s to
+           the space separated list given in <i>hostlist</i>.
+
+     <b>-buildhostsfile</b> <i>hostsfile</i>
+           Enable distributed building and set the list of build machine=
+s to
+           the contents of <i>hostsfile</i>.  <i>hostsfile</i> <i>is</i>=
+ <i>a</i> <i>text</i> <i>file</i> <i>containing</i>
+           <i>build</i> <i>machine</i> <i>names,</i> <i>one</i> <i>per</=
+i> <i>line.</i>
+
+     <b>-help</b>
+           Displays usage information for <b>xcodebuild</b>.
+
+
+</pre>
+<h2>EXAMPLES</h2><pre>
+     xcodebuild clean install
+
+             Cleans the build directory; then builds and installs the fi=
+rst
+             target in the project.
+
+     xcodebuild -target MyTarget OBJROOT=3D/Build/MyProj/Obj.root
+             SYMROOT=3D/Build/MyProj/Sym.root
+
+             Builds the target <i>MyTarget</i> putting object (intermedi=
+ate) files in
+             one directory and the products of the build in another dire=
+ctory.
+
+     xcodebuild -sdk macosx10.4
+
+             Builds an Xcode project against the Mac OS X 10.4 SDK.  The=
+
+             canonical names of all available SDKs can be viewed using t=
+he
+             -showsdks option.
+
+Mac OS X                         April 8, 2008                        Ma=
+c OS X
+</pre>
+<hr>
+Mac OS X 10.6 - Generated Thu Sep 17 20:09:33 CDT 2009
+</div>
+<div id=3D"footer2">
+	<table width=3D"100%" cellpadding=3D"10">
+		<tr>
+			<td align=3D"center">
+			<script type=3D"text/javascript"><!--
+			google_ad_client =3D "pub-1710183999564190";
+			/* 728x90, created 6/19/08 */
+			google_ad_slot =3D "1585046737";
+			google_ad_width =3D 728;
+			google_ad_height =3D 90;
+			//-->
+			</script>
+			<script type=3D"text/javascript"
+			src=3D"http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+			</td>
+		</tr>
+	</table>
+</div>
+<div id=3D"footer">
+<pre class=3D"foot">
+&copy; manpagez.com 2000-2011
+Individual documents may contain additional copyright information.
+</pre>
+</div>
+</div>
+</body>
+</html>
+
+------------RDzpsbv0ZOispsVQlgPnxH
+Content-Disposition: inline
+Content-Type: image/webp
+Content-Location: http://www.manpagez.com/images/bluefiber.png
+Content-Transfer-Encoding: Base64
+
+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
+MUrOFi2GMFnzrU9fDpmXQA==
+
+------------RDzpsbv0ZOispsVQlgPnxH
+Content-Disposition: inline; filename=main.css
+Content-Type: text/css; name=main.css
+Content-Location: http://www.manpagez.com/main.css
+Content-Transfer-Encoding: 8bit
+
+	<style type="text/css">
+		a:link {
+			text-decoration: none;
+		}
+
+		a:visited {
+			text-decoration: none;
+		}
+
+		body {
+			background-color: #666666;
+			margin: 0;
+			font-family: Helvetica, sans-serif;
+			font-size: 12pt;
+		}
+		
+		flleft {
+			float: left;
+		}
+		
+		h1.head {
+			color:	#3338E0;
+			text-align: center;
+			font-size: xx-large;
+		}
+
+		p.jn {
+			text-align:justify;
+		}
+		
+		p.j {
+			text-align:justify;
+		}
+		
+		pre.foot {
+			font-size: 9pt;
+			padding: 5pt;
+		}
+		
+		pre.lic {
+			font-size: 10pt;
+			line-height: 14px;
+		}
+		
+		span.date {
+			font-size: 10pt;
+			font-style:	italic;
+		}
+		
+		span.red {
+			color:	red;
+		}
+		
+		span.title {
+			font-size: 14pt;
+		}
+		
+		.banner {
+			background-color: #000;
+			color: white;
+		}
+		
+		.banner a:link {
+			color: white;
+			text-decoration: none;
+		}
+			
+		.banner a:active {
+			color: red;
+			text-decoration: none;
+		}
+			
+		.banner a:hover {
+			color: red;
+			text-decoration: none;
+		}
+			
+		.banner a:visited {
+			color: white;
+			text-decoration: none;
+		}
+		
+		.head {
+			line-height: 14px;
+			padding-bottom: 4px;
+			font-size: 12px;
+			text-align: right;
+		}
+		
+		hr {
+			text-align: center;
+			height:1px;
+			background-color: #8009d4;
+			border: 0;
+		}
+		
+		td.foot {
+			color: white;
+		}
+		
+		td.list {
+			background-color: #D4DBE3;
+		}
+		
+		td.menu {
+			background-color: #D4DBE3;
+			border-right-color:	black;
+			border-right-width:	thick;
+			text-align: left;
+			vertical-align: top;
+			width:	160px;
+		}
+
+		td.story {
+			padding-bottom: 10px;
+			padding-right: 5px;
+		}		
+	
+		td.top {
+			border-bottom-style: solid;
+			border-bottom-width: thin;
+			border-top-style: solid;
+			border-top-width: medium;
+			border-color: gray;
+			padding-bottom: 4px;
+			padding-top: 4px;
+		}
+				
+		td.bottom {
+			border-bottom-style: solid;
+			border-bottom-width: medium;
+			border-color: gray;
+			padding-bottom: 4px;
+			padding-top: 4px;
+		}
+				
+		td.middle {
+			border-bottom-style: solid;
+			border-bottom-width: thin;
+			border-color: gray;
+			padding-bottom: 4px;
+			padding-top: 4px;
+		}
+				
+		td.single {
+			border-bottom-style: solid;
+			border-bottom-width: medium;
+			border-top-style: solid;
+			border-top-width: medium;
+			border-color: gray;
+			padding-bottom: 4px;
+			padding-top: 4px;
+		}
+				
+		#container {
+			width: 920px;
+			margin: 10px auto;
+			margin-top: 0px;
+			padding-top: 0px;
+			background-color: #fff;
+			color: #333;
+			border: 1px solid gray;
+			line-height: 130%;
+		}
+
+		#content {
+			margin-left: 50px;
+			padding: 1em;
+			max-width: 38em;
+		}
+
+		#content a {
+			text-decoration: none;
+		}
+		
+		#content a:hover {
+			text-decoration: underline;
+		}
+		
+		#content h1 {
+			color: #8009d4;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 28px;
+			font-weight: normal;
+		}
+		
+		#content h2 {
+			color: #8009d4;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			font-weight: normal;
+		}
+		
+		#content div.rss_desc {
+			font-size:14px;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-align: justify;
+			margin-top: 10px;
+		}
+		
+		#content div.list {
+			width: 820px;
+			font-size: 11px;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		}
+		
+		#content span.rss_date {
+			font-size:10px;
+			padding: 0px;
+			margin:0px auto;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-align: justify;
+			font-style: italic;
+			color: #333333;
+		}
+		
+		#content span.rss_head {
+			font-size:20px;
+			padding: 0px;
+			margin:0px auto;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-align: justify;
+			font-style: normal;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		
+		#content div.sticky {
+			font-size:14px;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-align: justify;
+			margin-top: 10px;
+			background-color: #FFCC00;
+			border-color: #333333;
+			border-style:dashed;
+			border-width:thin;
+			margin: 6px;
+			padding: 15px;
+			margin-bottom: 15px;
+		}
+		
+		#content h2.sticky {
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-align: center;
+		}
+		
+		#content div.noleft {
+			margin-left: 0px;
+			border-left: none;			
+			padding: 1em;
+		}
+		
+		#content pre {
+			font-size: 10pt;
+			line-height: 13px;
+		}
+
+		#contentmenu {
+			background-color: #8009d4;
+			padding: 2px;
+			padding-left: 7px;
+			padding-right: 7px;
+			height: 14px
+			vertical-align: middle;
+			color: white;
+			font-size: 12px;
+		}
+
+		#contentmenu a {
+			color: #cccccc;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-decoration: none;
+		}
+
+		#contentmenu a:hover {
+			color: white;
+			text-decoration: none;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		}
+			
+		#footer {
+			clear: both;
+			margin: 0;
+			padding: .5em;
+			color: #333;
+			background-color: #ddd;
+			border-top: 1px solid gray;
+		}
+		
+		#footer2 {
+			clear: both;
+			margin: 0;
+			padding: .5em;
+			color: #CCCCCC;
+			background-color: #8009d4;
+			border-top: 1px solid gray;
+		}
+		
+		#footer pre {
+			font-size: 9pt;
+			line-height: 11px;
+		}
+
+		#hmenu {
+			border-bottom: 1px solid gray;
+		}
+		
+		#top {
+			padding: 0.5em;
+			border-bottom: 1px solid gray;
+			height: 110px;
+			background-image:url(/images/bluefiber.png);
+			background-repeat:no-repeat;
+			padding-left:	67px;
+			vertical-align: top;
+		}
+
+		#top span.title {
+			font-family: Courier, serif;
+			color: #FFF;
+			vertical-align: top;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-size: 32px;
+			line-height: 36px;
+		}
+
+		#top span.subtitle {
+			font-family: Courier, serif;
+			color: #FFF;
+			vertical-align: top;
+			font-size: 24px;
+			background-position: center;
+			line-height: 28px;
+		}
+
+		#toplink {
+			padding: 4px;
+			background-color: #0fb6c5;
+			border-bottom: 1px solid gray;
+			/*height: 18px;*/
+			vertical-align: middle;
+			color: white;
+			font-size: 14px;
+		}
+
+		#toplink a {
+			color: #cccccc;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			text-decoration: none;
+		}
+
+		#toplink a:hover {
+			color: #fff;
+			text-decoration: none;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		}
+
+		/* CSS definitions for fonts */
+		
+		.V9 			{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 8px; color: #000000; }
+		.V10W 			{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 9px; color: #FFFFFF; text-decoration:	none;}
+		.V9W 			{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 8px; color: #FFFFFF; text-decoration:	none;}
+		.V10WB 			{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 9px; color: #FFFFFF; font-weight: 900; }
+		.V9G 			{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 8px; color: #666666; }
+		.V10 			{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 9px; color: #000000; }
+		.V9BOLD 		{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 8px; font-weight: 900; }
+		.G10 			{
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			color: #0066FF;
+			line-height: 11px;
+		}
+		.G10B 			{
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			color: #000000;
+			line-height: 12px;
+		}
+		ul {
+			list-style-position: outside;
+			list-style-image: url(/Images/ra.gif);
+			list-style-type: square;
+		}
+		.G10BOLD 		{
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			font-weight: 700;
+			vertical-align: top;
+			line-height: 12px;
+		}
+		.G10G 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #A1A5A9; }
+		.V12 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  color: #000000; line-height: 12px; }
+		.V14 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px;  color: #000000; line-height: 20px; }
+		.eventfont 		{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #FFFFFF; }
+
+		a.summary-letter {text-decoration: none}
+		pre.display {font-family: serif}
+		pre.format {font-family: serif}
+		pre.menu-comment {font-family: serif}
+		pre.menu-preformatted {font-family: serif}
+		pre.smalldisplay {font-family: serif; font-size: smaller}
+		pre.smallexample {font-size: smaller}
+		pre.smallformat {font-family: serif; font-size: smaller}
+		pre.smalllisp {font-size: smaller}
+		span.roman {font-family:serif; font-weight:normal;}
+		span.sansserif {font-family:sans-serif; font-weight:normal;}
+		ul.toc {list-style: none}
+
+	</style>
+
+------------RDzpsbv0ZOispsVQlgPnxH
+Content-Disposition: inline; filename=show_ads.js
+Content-Type: text/javascript; charset=UTF-8; name=show_ads.js
+Content-Location: http://pagead2.googlesyndication.com/pagead/show_ads.js
+Content-Transfer-Encoding: Quoted-Printable
+
+
+(function(){var g=3Dnull,h=3D(new Date).getTime();var i=3Dthis,aa=3Dfunc=
+tion(a,b){var c=3Da.split("."),d=3Di;!(c[0]in d)&&d.execScript&&d.execSc=
+ript("var "+c[0]);for(var e;c.length&&(e=3Dc.shift());)!c.length&&b!=3D=3D=
+void 0?d[e]=3Db:d=3Dd[e]?d[e]:d[e]=3D{}},ba=3Dfunction(a){return a.call.=
+apply(a.bind,arguments)},ca=3Dfunction(a,b){var c=3Db||i;if(arguments.le=
+ngth>2){var d=3DArray.prototype.slice.call(arguments,2);return function(=
+){var b=3DArray.prototype.slice.call(arguments);Array.prototype.unshift.=
+apply(b,d);return a.apply(c,b)}}else return function(){return a.apply(c,=
+arguments)}},
+j=3Dfunction(){j=3DFunction.prototype.bind&&Function.prototype.bind.toSt=
+ring().indexOf("native code")!=3D-1?ba:ca;return j.apply(g,arguments)};v=
+ar da=3D/&/g,ea=3D/</g,fa=3D/>/g,ha=3D/\"/g,k=3D{"\0":"\\0","\u0008":"\\=
+b","\u000c":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\u000b":"\\x0B",'"':=
+'\\"',"\\":"\\\\"},n=3D{"'":"\\'"},q=3Dfunction(a,b){if(a<b)return-1;els=
+e if(a>b)return 1;return 0};var s,t,u,x,z=3Dfunction(){return i.navigato=
+r?i.navigator.userAgent:g};x=3Du=3Dt=3Ds=3D!1;var A;if(A=3Dz()){var ia=3D=
+i.navigator;s=3DA.indexOf("Opera")=3D=3D0;t=3D!s&&A.indexOf("MSIE")!=3D-=
+1;u=3D!s&&A.indexOf("WebKit")!=3D-1;x=3D!s&&!u&&ia.product=3D=3D"Gecko"}=
+var B=3Dt,D=3Dx,ja=3Du,E;
+a:{var F=3D"",G;if(s&&i.opera)var H=3Di.opera.version,F=3Dtypeof H=3D=3D=
+"function"?H():H;else if(D?G=3D/rv\:([^\);]+)(\)|;)/:B?G=3D/MSIE\s+([^\)=
+;]+)(\)|;)/:ja&&(G=3D/WebKit\/(\S+)/),G)var ka=3DG.exec(z()),F=3Dka?ka[1=
+]:"";if(B){var I,la=3Di.document;I=3Dla?la.documentMode:void 0;if(I>pars=
+eFloat(F)){E=3DString(I);break a}}E=3DF}
+var ma=3DE,na=3D{},J=3Dfunction(a){var b;if(!(b=3Dna[a])){b=3D0;for(var =
+c=3DString(ma).replace(/^[\s\xa0]+|[\s\xa0]+$/g,"").split("."),d=3DStrin=
+g(a).replace(/^[\s\xa0]+|[\s\xa0]+$/g,"").split("."),e=3DMath.max(c.leng=
+th,d.length),f=3D0;b=3D=3D0&&f<e;f++){var ra=3Dc[f]||"",r=3Dd[f]||"",l=3D=
+RegExp("(\\d*)(\\D*)","g"),y=3DRegExp("(\\d*)(\\D*)","g");do{var o=3Dl.e=
+xec(ra)||["","",""],m=3Dy.exec(r)||["","",""];if(o[0].length=3D=3D0&&m[0=
+].length=3D=3D0)break;b=3Dq(o[1].length=3D=3D0?0:parseInt(o[1],10),m[1].=
+length=3D=3D0?0:parseInt(m[1],10))||q(o[2].length=3D=3D
+0,m[2].length=3D=3D0)||q(o[2],m[2])}while(b=3D=3D0)}b=3Dna[a]=3Db>=3D0}r=
+eturn b};var K,L;L=3DK=3D!1;var M=3Dz();M&&(M.indexOf("Firefox")!=3D-1?K=
+=3D!0:M.indexOf("Camino")!=3D-1||M.indexOf("iPhone")!=3D-1||M.indexOf("i=
+Pod")!=3D-1||M.indexOf("iPad")!=3D-1||M.indexOf("Android")!=3D-1||M.inde=
+xOf("Chrome")!=3D-1&&(L=3D!0));var oa=3DK,pa=3DL;var qa=3Ddocument,N=3Dw=
+indow;var O=3Dfunction(a){a=3DparseFloat(a);return isNaN(a)||a>1||a<0?0:=
+a},P=3Dfunction(a){if(a=3D=3D"true")return!0;return!1},sa=3D/^([\w-]+\.)=
+*([\w-]{2,})(\:[0-9]+)?$/,ta=3Dfunction(a){if(!a)return"pagead2.googlesy=
+ndication.com";return(a=3Da.match(sa))?a[0]:"pagead2.googlesyndication.c=
+om"};var ua=3DO("0"),va=3DO("0"),wa=3DO("1"),xa=3DO("0.2");var ya=3DP("f=
+alse"),za=3DP("false"),Aa=3DP("false");var Ba=3Dfunction(){return ta("")=
+};!B||J("9");!D&&!B||B&&J("9")||D&&J("1.9.1");B&&J("9");ta("");var Q=3Df=
+unction(a){return!!a&&typeof a=3D=3D"function"&&!!a.call},Ca=3Dfunction(=
+a){if(!(arguments.length<2))for(var b=3D1,c=3Darguments.length;b<c;++b)a=
+.push(arguments[b])};function R(a){return typeof encodeURIComponent=3D=3D=
+"function"?encodeURIComponent(a):escape(a)}function Da(a,b){a.attachEven=
+t?a.attachEvent("onload",b):a.addEventListener&&a.addEventListener("load=
+",b,!1)}
+function Fa(a,b){if(!(Math.random()<1.0E-4)){var c=3DMath.random();if(c<=
+b)return a[Math.floor(c/b*a.length)]}return""};aa("google_protectAndRun"=
+,function(a,b,c){a=3Dj(b,i,a);b=3Dwindow.onerror;window.onerror=3Da;try{=
+c()}catch(d){var c=3Dd.toString(),e=3D"";d.fileName&&(e=3Dd.fileName);va=
+r f=3D-1;if(d.lineNumber)f=3Dd.lineNumber;if(!a(c,e,f))throw d;}window.o=
+nerror=3Db});
+aa("google_handleError",function(a,b,c,d){if(Math.random()<0.01)a=3D["ht=
+tp://",Ba(),"/pagead/gen_204","?id=3Djserror","&jscb=3D",ya?1:0,"&jscd=3D=
+",za?1:0,"&context=3D",R(a),"&msg=3D",R(b),"&file=3D",R(c),"&line=3D",R(=
+d.toString()),"&url=3D",R(qa.URL.substring(0,512)),"&ref=3D",R(qa.referr=
+er.substring(0,512))],a.push(["&client=3D",R(N.google_ad_client),"&forma=
+t=3D",R(N.google_ad_format),"&slotname=3D",R(N.google_ad_slot),"&output=3D=
+",R(N.google_ad_output),"&ad_type=3D",R(N.google_ad_type)].join("")),a=3D=
+a.join(""),N.google_image_requests||
+(N.google_image_requests=3D[]),b=3Dnew Image,b.src=3Da,N.google_image_re=
+quests.push(b);return!Aa});var Ga=3Dfunction(a){try{var b=3Da.google_tes=
+t;a.google_test=3D!b;if(a.google_test=3D=3D=3D!b)return a.google_test=3D=
+b,!0}catch(c){}return!1},Ha=3Dg,Ia=3Dfunction(){if(!Ha){for(var a=3Dwind=
+ow;a!=3Da.parent&&Ga(a.parent);)a=3Da.parent;Ha=3Da}return Ha};var S,T=3D=
+function(a){this.c=3D[];this.a=3Da||window;this.b=3D0;this.d=3Dg},Ja=3Df=
+unction(a,b){this.l=3Da;this.i=3Db};T.prototype.n=3Dfunction(a,b){this.b=
+=3D=3D0&&this.c.length=3D=3D0&&(!b||b=3D=3Dwindow)?(this.b=3D2,this.g(ne=
+w Ja(a,window))):this.h(a,b)};T.prototype.h=3Dfunction(a,b){this.c.push(=
+new Ja(a,b||this.a));Ka(this)};T.prototype.o=3Dfunction(a){this.b=3D1;if=
+(a)this.d=3Dthis.a.setTimeout(j(this.f,this),a)};T.prototype.f=3Dfunctio=
+n(){if(this.b=3D=3D1){if(this.d!=3Dg)this.a.clearTimeout(this.d),this.d=3D=
+g;this.b=3D0}Ka(this)};
+T.prototype.p=3Dfunction(){return!0};T.prototype.nq=3DT.prototype.n;T.pr=
+ototype.nqa=3DT.prototype.h;T.prototype.al=3DT.prototype.o;T.prototype.r=
+l=3DT.prototype.f;T.prototype.sz=3DT.prototype.p;var Ka=3Dfunction(a){a.=
+a.setTimeout(j(a.m,a),0)};T.prototype.m=3Dfunction(){if(this.b=3D=3D0&&t=
+his.c.length){var a=3Dthis.c.shift();this.b=3D2;a.i.setTimeout(j(this.g,=
+this,a),0);Ka(this)}};T.prototype.g=3Dfunction(a){this.b=3D0;a.l()};
+var La=3Dfunction(a){try{return a.sz()}catch(b){return!1}},Ma=3Dfunction=
+(a){return!!a&&(typeof a=3D=3D"object"||typeof a=3D=3D"function")&&La(a)=
+&&Q(a.nq)&&Q(a.nqa)&&Q(a.al)&&Q(a.rl)},Na=3Dfunction(){if(S&&La(S))retur=
+n S;var a=3DIa(),b=3Da.google_jobrunner;if(Ma(b))return S=3Db;return a.g=
+oogle_jobrunner=3DS=3Dnew T(a)},Oa=3Dfunction(a,b){Na().nq(a,b)},Pa=3Dfu=
+nction(a,b){Na().nqa(a,b)};var Qa=3Dfunction(a,b,c){var d=3D["<iframe"],=
+e;for(e in a)a.hasOwnProperty(e)&&Ca(d,e+"=3D"+a[e]);d.push('style=3D"le=
+ft:0;position:absolute;top:0;"');d.push("></iframe>");b=3D"border:none;h=
+eight:"+c+"px;margin:0;padding:0;position:relative;visibility:visible;wi=
+dth:"+b+"px";return['<ins style=3D"display:inline-table;',b,'"><ins id=3D=
+"',a.id+"_anchor",'" style=3D"display:block;',b,'">',d.join(" "),"</ins>=
+</ins>"].join("")};var Ra=3Dfunction(){},Ta=3Dfunction(a,b,c){switch(typ=
+eof b){case "string":Sa(b,c);break;case "number":c.push(isFinite(b)&&!is=
+NaN(b)?b:"null");break;case "boolean":c.push(b);break;case "undefined":c=
+.push("null");break;case "object":if(b=3D=3Dg){c.push("null");break}if(b=
+ instanceof Array){var d=3Db.length;c.push("[");for(var e=3D"",f=3D0;f<d=
+;f++)c.push(e),Ta(a,b[f],c),e=3D",";c.push("]");break}c.push("{");d=3D""=
+;for(e in b)b.hasOwnProperty(e)&&(f=3Db[e],typeof f!=3D"function"&&(c.pu=
+sh(d),Sa(e,c),c.push(":"),Ta(a,f,c),d=3D
+","));c.push("}");break;case "function":break;default:throw Error("Unkno=
+wn type: "+typeof b);}},Ua=3D{'"':'\\"',"\\":"\\\\","/":"\\/","\u0008":"=
+\\b","\u000c":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\u000b":"\\u000b"}=
+,Va=3D/\uffff/.test("\uffff")?/[\\\"\x00-\x1f\x7f-\uffff]/g:/[\\\"\x00-\=
+x1f\x7f-\xff]/g,Sa=3Dfunction(a,b){b.push('"');b.push(a.replace(Va,funct=
+ion(a){if(a in Ua)return Ua[a];var b=3Da.charCodeAt(0),e=3D"\\u";b<16?e+=
+=3D"000":b<256?e+=3D"00":b<4096&&(e+=3D"0");return Ua[a]=3De+b.toString(=
+16)}));b.push('"')};var U=3D["google_ad_block","google_ad_channel","goog=
+le_ad_client","google_ad_format","google_ad_height","google_ad_host","go=
+ogle_ad_host_channel","google_ad_host_tier_id","google_ad_output","googl=
+e_ad_override","google_ad_region","google_ad_section","google_ad_slot","=
+google_ad_type","google_ad_width","google_adtest","google_allow_expandab=
+le_ads","google_alternate_ad_url","google_alternate_color","google_analy=
+tics_domain_name","google_analytics_uacct","google_bid","google_city","g=
+oogle_color_bg","google_color_border",
+"google_color_line","google_color_link","google_color_text","google_colo=
+r_url","google_container_id","google_contents","google_country","google_=
+cpm","google_ctr_threshold","google_cust_age","google_cust_ch","google_c=
+ust_gender","google_cust_id","google_cust_interests","google_cust_job","=
+google_cust_l","google_cust_lh","google_cust_u_url","google_disable_vide=
+o_autoplay","google_ed","google_eids","google_enable_osd","google_encodi=
+ng","google_font_face","google_font_size","google_frame_id","google_gl",=
+
+"google_hints","google_image_size","google_kw","google_kw_type","google_=
+language","google_max_num_ads","google_max_radlink_len","google_num_radl=
+inks","google_num_radlinks_per_unit","google_num_slots_to_rotate","googl=
+e_only_ads_with_video","google_only_pyv_ads","google_only_userchoice_ads=
+","google_override_format","google_page_url","google_referrer_url","goog=
+le_region","google_reuse_colors","google_rl_dest_url","google_rl_filteri=
+ng","google_rl_mode","google_rt","google_safe","google_skip","google_tag=
+_info",
+"google_targeting","google_ui_features","google_ui_version","google_vide=
+o_doc_id","google_video_product_type","google_with_pyv_ads"];var V=3Dfun=
+ction(a){this.a=3Da;a.google_iframe_oncopy||(a.google_iframe_oncopy=3D{h=
+andlers:{},log:[],img:Math.random()<0.01?[]:g});this.e=3Da.google_iframe=
+_oncopy;a.setTimeout(j(this.k,this),3E4)},Wa;var W=3D"var i=3Dthis.id,s=3D=
+window.google_iframe_oncopy,H=3Ds&&s.handlers,h=3DH&&H[i],w=3Dthis.conte=
+ntWindow,d;try{d=3Dw.document}catch(e){}if(h&&d&&(!d.body||!d.body.first=
+Child)){if(h.call){i+=3D'.call';setTimeout(h,0)}else if(h.match){i+=3D'.=
+nav';w.location.replace(h)}s.log&&s.log.push(i)}";
+/[&<>\"]/.test(W)&&(W.indexOf("&")!=3D-1&&(W=3DW.replace(da,"&amp;")),W.=
+indexOf("<")!=3D-1&&(W=3DW.replace(ea,"&lt;")),W.indexOf(">")!=3D-1&&(W=3D=
+W.replace(fa,"&gt;")),W.indexOf('"')!=3D-1&&(W=3DW.replace(ha,"&quot;"))=
+);Wa=3DW;V.prototype.set=3Dfunction(a,b){this.e.handlers[a]=3Db;this.a.a=
+ddEventListener&&this.a.addEventListener("load",j(this.j,this,a),!1)};V.=
+prototype.j=3Dfunction(a){var a=3Dthis.a.document.getElementById(a),b=3D=
+a.contentWindow.document;if(a.onload&&b&&(!b.body||!b.body.firstChild))a=
+.onload()};
+V.prototype.k=3Dfunction(){if(this.e.img){var a=3Dthis.e.log,b=3Dthis.a.=
+document;if(a.length)b=3D["http://",Ba(),"/pagead/gen_204?id=3Diframecop=
+y&log=3D",R(a.join("-")),"&url=3D",R(b.URL.substring(0,512)),"&ref=3D",R=
+(b.referrer.substring(0,512))].join(""),a.length=3D0,a=3Dnew Image,this.=
+e.img.push(a),a.src=3Db}};var Xa=3Dfunction(){var a=3D"script";return["<=
+",a,' src=3D"http://',ta(""),'/pagead/js/r20110420/r20110427/show_ads_im=
+pl.js"></',a,">"].join("")},Ya=3Dfunction(a,b,c,d){return function(){var=
+ e=3D!1;d&&Na().al(3E4);try{var f;try{f=3D!!a.document.getElementById(b)=
+.contentWindow.document}catch(ra){f=3D!1}if(f){var r=3Da.document.getEle=
+mentById(b).contentWindow,
+l=3Dr.document;if(!l.body||!l.body.firstChild)l.open(),r.google_async_if=
+rame_close=3D!0,l.write(c)}else{var y=3Da.document.getElementById(b).con=
+tentWindow,o;f=3Dc;f=3DString(f);if(f.quote)o=3Df.quote();else{r=3D['"']=
+;for(l=3D0;l<f.length;l++){var m=3Df.charAt(l),Ea=3Dm.charCodeAt(0),mb=3D=
+r,nb=3Dl+1,ga;if(!(ga=3Dk[m])){var C;if(Ea>31&&Ea<127)C=3Dm;else{var p=3D=
+m;if(p in n)C=3Dn[p];else if(p in k)C=3Dn[p]=3Dk[p];else{var v=3Dp,w=3Dp=
+.charCodeAt(0);if(w>31&&w<127)v=3Dp;else{if(w<256){if(v=3D"\\x",w<16||w>=
+256)v+=3D"0"}else v=3D"\\u",w<4096&&(v+=3D"0");
+v+=3Dw.toString(16).toUpperCase()}C=3Dn[p]=3Dv}}ga=3DC}mb[nb]=3Dga}r.pus=
+h('"');o=3Dr.join("")}y.location.replace("javascript:"+o)}e=3D!0}catch(t=
+b){y=3DIa().google_jobrunner,Ma(y)&&y.rl()}e&&(new V(a)).set(b,Ya(a,b,c,=
+!1))}},Za=3Dfunction(){return ua&&va/ua||typeof window.google_hash_ratio=
+=3D=3D"number"&&window.google_hash_ratio||g};window.google_loader_used=3D=
+!0;(function(a){if(!("google_onload_fired"in a))a.google_onload_fired=3D=
+!1,Da(a,function(){a.google_onload_fired=3D!0})})(window);if(!window.goo=
+gle_loader_experiment)window.google_loader_experiment=3DFa(["async1_all"=
+,"block1"],xa)||Fa(["launch"],wa)||"none";var $a,ab=3Dwindow.google_load=
+er_experiment;
+if($a=3Dwindow.google_enable_async=3D=3D=3D!0||ab=3D=3D"launch"||ab=3D=3D=
+"async1_all")$a=3Dwindow.google_enable_async=3D=3D=3D!1?!1:(B&&/MSIE 8/.=
+test(navigator.userAgent)||pa||oa&&!!window.document.body)&&!window.goog=
+le_container_id&&(!window.google_ad_output||window.google_ad_output=3D=3D=
+"html");
+if($a){var bb=3Dwindow;bb.google_unique_id?++bb.google_unique_id:bb.goog=
+le_unique_id=3D1;for(var X=3Dwindow,_script$$inline_198=3D"script",Y,Z=3D=
+{allowtransparency:'"true"',frameborder:'"0"',height:'"'+X.google_ad_hei=
+ght+'"',hspace:'"0"',marginwidth:'"0"',marginheight:'"0"',onload:'"'+Wa+=
+'"',scrolling:'"no"',vspace:'"0"',width:'"'+X.google_ad_width+'"'},cb=3D=
+X.document,$=3DZ.id,db=3D0;!$||X.document.getElementById($);)$=3D"aswift=
+_"+db++;Z.id=3D$;Z.name=3D$;cb.write(Qa(Z,X.google_ad_width,X.google_ad_=
+height));Y=3D$;var eb;
+X.google_page_url&&(X.google_page_url=3DString(X.google_page_url));for(v=
+ar fb=3D[],gb=3D0,hb=3DU.length;gb<hb;gb++){var ib=3DU[gb];if(X[ib]!=3Dg=
+){var jb;try{var kb=3D[];Ta(new Ra,X[ib],kb);jb=3Dkb.join("")}catch(lb){=
+}jb&&Ca(fb,ib,"=3D",jb,";")}}eb=3Dfb.join("");for(var ob=3D0,pb=3DU.leng=
+th;ob<pb;ob++)X[U[ob]]=3Dg;var qb=3D(new Date).getTime(),rb=3DZa(),sb=3D=
+window.google_loader_experiment,ub=3D["<!doctype html><html><body><",_sc=
+ript$$inline_198,">",eb,"google_show_ads_impl=3Dtrue;google_unique_id=3D=
+",X.google_unique_id,';google_async_iframe_id=3D"',
+Y,'";google_start_time=3D',h,";",rb?"google_hash_ratio=3D"+rb+";":"",sb?=
+'google_loader_experiment=3D"'+sb+'";':"","google_bpp=3D",qb>h?qb-h:1,";=
+</",_script$$inline_198,">",Xa(),"</body></html>"].join("");(X.document.=
+getElementById(Y)?Oa:Pa)(Ya(X,Y,ub,!0))}else window.google_start_time=3D=
+h,window.google_hash_ratio=3DZa(),document.write(Xa());})();
+
+------------RDzpsbv0ZOispsVQlgPnxH
+Content-Disposition: inline; filename=brand.js
+Content-Type: text/javascript; charset=UTF-8; name=brand.js
+Content-Location: http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en
+Content-Transfer-Encoding: 8bit
+
+
+(function() {
+var f = document.getElementById('cse-search-box');
+if (!f) {
+f = document.getElementById('searchbox_demo');
+}
+if (f && f.q) {
+var q = f.q;
+var n = navigator;
+var l = location;
+var su = function () {
+var u = document.createElement('input');
+var v = document.location.toString();
+var existingSiteurl = /(?:[?&]siteurl=)([^&#]*)/.exec(v);
+if (existingSiteurl) {
+v = decodeURI(existingSiteurl[1]);
+}
+var delimIndex = v.indexOf('://');
+if (delimIndex >= 0) {
+v = v.substring(delimIndex + '://'.length, v.length);
+}
+u.name = 'siteurl';
+u.value = v;
+u.type = 'hidden';
+f.appendChild(u);
+};
+if (n.appName == 'Microsoft Internet Explorer') {
+var s = f.parentNode.childNodes;
+for (var i = 0; i < s.length; i++) {
+        if (s[i].nodeName == 'SCRIPT' &&
+            s[i].attributes['src'] &&
+            s[i].attributes['src'].nodeValue == unescape('http:\x2F\x2Fwww.google.com\x2Fcoop\x2Fcse\x2Fbrand?form=cse-search-box\x26lang=en')) {
+          su();
+          break;
+        }
+      }
+    } else {
+      su();
+    }
+
+    
+    if (n.platform == 'Win32') {
+      q.style.cssText = 'border: 1px solid #7e9db9; padding: 2px;';
+    }
+
+    
+    if (window.history.navigationMode) {
+      window.history.navigationMode = 'compatible';
+    }
+
+    var b = function() {
+      if (q.value == '') {
+        q.style.background = '#FFFFFF url(http:\x2F\x2Fwww.google.com\x2Fcse\x2Fintl\x2Fen\x2Fimages\x2Fgoogle_custom_search_watermark.gif) left no-repeat';
+      }
+    };
+
+    var f = function() {
+      q.style.background = '#ffffff';
+    };
+
+    q.onfocus = f;
+    q.onblur = b;
+
+    
+    if (!/[&?]q=[^&]/.test(l.search)) {
+      b();
+    }
+  }
+})();
+
+------------RDzpsbv0ZOispsVQlgPnxH--
