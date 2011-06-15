@@ -1,4 +1,18 @@
-Sources of the Articles about iOS, xCode and other iPhone stuff. 
+Sources of the Articles about iOS, xCode, objectiveC and other iPhone development related stuff. 
 Written with the help of OpenOffice.org
 License : AFL ( Academic Free License ).
+=====================================================================
+
+Table of contents : 
+1-CodeStyle              -- a description of the sytyle that we use. It is based on google objC code style.
+2-xCode4_commandline     -- it makes a parallel between xCode GUI and "man xcodebuild" options.
+3-iContiniousIntegration -- a description of the hello-world style example project ( https://github.com/dodikk/iContiniousIntegration ). It describes a full development cycle :
+   * libraries creation and usage
+   * unit testing with GHUnit
+   * "universal binary" library creation and usage
+   * building and deploying the project
+4-JffArticles            -- articles about objectiveC blocks (by V.Gorbenko)
+=====================================================================
+
+
 

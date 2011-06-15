@@ -1,0 +1,228 @@
+О блоках и их использовании в Objective-C часть 1-ая 
+
+
+ В OS X 10.6 и iOS 4.0 компания Apple анонсировала поддержку блоков, по сути являющиx собою замыкания. Дальше о блоках в контексте разработки под IOS, Objective-C (тоесть работа без gc).
+ Для использования блоков IOS ver. < 4.0 можно применить ESBlockRuntime и PLBlocks.
+
+Кратко о теории
+
+ Экземпляр блока, тип блока и сам блоковый литерал обозначаются с помощью оператора ^, пример:
+
+typedef int (^MyBlock)(int);
+
+int multiplier = 7;
+ MyBlock myBlock = ^(int num) {
+  return num * multiplier;
+ };
+
+* This source code was highlighted with Source Code Highlighter.
+
+ или
+
+int multiplier = 7;
+int (^myBlock)(int) = ^(int num) {
+   return num * multiplier;
+ };
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Вызов блока аналогичен вызову обычной сишной функции. Например, так:
+
+myBlock( 3 )
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Главной особенностью блоков является их умение хранить контекст в котором они создавались. В примере выше «myBlock» всегда будет умножать число на 7. Как же это все работает?
+
+Виды переменных контекста блока
+
+ 1. Примитивные типы С и структуры, блоки хранят как константы. Пример:
+
+
+int multiplier = 7;
+int (^myBlock)(int) = ^(int num) {
+   return num * multiplier;
+ };
+ multiplier = 8;
+ NSLog( @"%d", myBlock( 3 ) );
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Печатает — 21, а не 24.
+
+ 2. Переменные заданные с ключевым словом __block являются изменяемыми. Работает это за счет копирования значения такой переменной в кучу и каждый блок хранит ссылку на эту переменную. Пример:
+
+__block int multiplier = 7;
+int (^myBlock)(int) = ^(int num) {
+   return num * multiplier;
+ };
+ multiplier = 8;
+ NSLog( @"%d", myBlock( 3 ) );
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Печатает — 24, а не 21.
+
+ 3. Переменные — указатели на обьекты с подсчетом ссылок (id, NSObject). Для них вызывается retain при копировании блока в кучу. Пример:
+
+NSDate* date = [ [ NSDate alloc ] init ];
+
+void (^printDate)() = ^() {
+  NSLog( @"date: %@", date );
+ };
+
+//копируем блок в кучу
+ printDate = [ [ printDate copy ] autorelease ];
+
+ [ date release ];
+
+ printDate();
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Здесь хочется обратить ваше внимание на то, что retain объекта date происходит именно во время копирования блока в кучу, а не во время его создания. К примеру, этот код упадет с “EXC_BAD_ACCESS”
+
+NSDate* date = [ [ NSDate alloc ] init ];
+
+void (^printDate)() = ^() {
+  NSLog( @"date: %@", date );
+ };
+
+ [ date release ];
+
+//копируем блок в кучу и падаем
+ printDate = [ [ printDate copy ] autorelease ];
+
+ printDate();
+
+* This source code was highlighted with Source Code Highlighter.
+
+ 4. Переменные — указатели на обьекты с подсчетом ссылок (id, NSObject) объявленые с ключевым словом __block. Для них НЕ вызывается retain при копировании блока в кучу. Пример:
+__block NSDate* date = [ [ NSDate alloc ] init ];
+
+void (^printDate)() = ^() {
+   //здесь падаем при обращении к date
+   NSLog( @"date: %@", date );
+ };
+
+//копируем блок в кучу, для объекта date retain не вызывается
+ printDate = [ [ printDate copy ] autorelease ];
+
+ [ date release ];
+
+ printDate();
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Обычно это используется для избегания циклических ссылок. Пример:
+@interface SomeClass : NSObject
+
+//копируем блок проперти
+ @property ( nonatomic, copy ) SimpleBlock block;
+
+ @end
+
+ @implementation SomeClass
+
+ @synthesize block = _block;
+
+ -(void)dealloc
+ {
+   [ _block release ];
+
+   [ super dealloc ];
+ }
+
+ -(void)methodB
+ {
+ }
+
+ -(void)methodA
+ {
+   __block SomeClass* self_ = self;
+   //потенциально циклическая ссылка( утечка ) - класс хранит блок, а блок ссылается на класс
+   self.block = ^()
+   {
+    //здесь retain для self_ не вызывается
+    [ self_ methodB ];
+   };
+ }
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Блоки являются экземплярами класса NSObject (конкретные классы этих обьектов не определенны), поэтому мы можем и вынуждены пользоватся методами класса NSObject — copy, retain, release и autorelease для блоков. Но зачем нам это нужно?
+
+Блоки и управление памятью
+
+ По умолчанию экземпляры блоков создаются не в куче, как можно было бы предположить, а в стеке. Поэтому при необходимости сделать отложеный вызов блока сначала его нужно скопировать в кучу.
+
+ Допустим, существует расширение класса NSObject c методом «performAfterDelay:», который выполняет заданный блок с задержкой.
+
+@implementation NSObject (BlocksExtensions)
+
+ -(void)callSelfBlock
+ {
+   void* self_ = self;
+   ESSimpleBlock block_ = (ESSimpleBlock)self_;
+   block_();
+ }
+
+ -(void)performAfterDelay:( NSTimeInterval )delay_
+ {
+   [ self performSelector: @selector( callSelfBlock ) withObject: nil afterDelay: delay_ ];
+ }
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+
+ И, собственно, вызов:
+  NSDate* date = [ NSDate date ];
+
+   void (^printDate)() = ^() {
+    NSLog( @"date: %@", date );
+   };
+
+   [ printDate performAfterDelay: 0.3 ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Такой код «свалит» наше приложение, потому как стековый блок будет к моменту вызова разрушен, и мы обратимся в месте вызова блока к случайной памяти. Хотя при этом такой код:
+  void (^printDate)() = ^() {
+    NSLog( @"date: %@", [ NSDate date ] );
+   };
+
+   [ printDate performAfterDelay: 0.3 ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+ будет прекрасно работать. В чем же причина? Обратите внимание — последний блок не ссылается на внешние переменные следовательно нет и необходимости создавать его копию. В этом случае компилятор создает так называемый Global блок. В программе существует всего один экземпляр такого блока, время жизни которого ограничено временем жизни приложения. Таким образом, GlobalBlock можно рассматривать как singletone-объект.
+
+Виды блоковых переменных
+
+ И так, подведем итоги. Существует три вида блоков: глобальные( без состояния ), локальные или они же стековые, и блоки в куче (MallocBlock). Следовательно методы copy, retain, release и autorelease глобального блока ничего не делают. Метод retain так же ничего не делает для стекового блока. Для Malloc блока метод copy в свою очередь работает как retain для NSObject.
+
+ И конечно же исправленная версия предыдущего примера с добавлением метода copy:
+@implementation NSObject (BlocksExtensions)
+
+ -(void)callSelfBlock
+ {
+  void* self_ = self;
+  ESSimpleBlock block_ = (ESSimpleBlock)self_;
+  block_();
+ }
+
+ -(void)performAfterDelay:( NSTimeInterval )delay_
+ {
+   //копируем блок в кучу, так как отложеный вызов - afterDelay:
+   self = [ [ self copy ] autorelease ];
+   [ self performSelector: @selector( callSelfBlock ) withObject: nil afterDelay: delay_ ];
+ }
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+
+О блоках и их использовании в Objective-C часть 2-ая

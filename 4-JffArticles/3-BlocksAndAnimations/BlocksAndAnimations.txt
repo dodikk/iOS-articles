@@ -1,0 +1,324 @@
+Так же как и в топике — О блоках и их использовании в Objective-C часть 2-ая, мы продолжим говорить о преимуществах 
+использования блоков на живых примерах.
+
+
+ Здесь мы рассмотрим удобства использования блоков при управлении последовательностью операций.
+
+5. UIView анимации, последовательность анимаций.
+
+ Для начала напишем простенький пример, в котором мы будем двигать кнопку с помощью анимаций(без блоков). Затем поменяем порядок анимаций чтобы посмотреть, какие изменения потребуются в коде.
+
+Шаг 1-ый
+
+ Создадим четыре анимации: «переместить кнопку вверх», "… вниз", "… вправо" и "… влево". Соответственно в методах: moveUpAnimation, moveDownAnimation, moveRightAnimation и moveLeftAnimation.
+ Вот пример одной из анимаций:
+-(void)moveUpAnimation
+ {
+   [ UIView beginAnimations: nil context: nil ];
+
+   CGFloat new_y_ = self.animatedButton.frame.origin.y
+    - ( self.view.frame.size.height - button_offset_ * 2 )
+    + self.animatedButton.frame.size.height;
+   self.animatedButton.frame = CGRectMake( self.animatedButton.frame.origin.x
+                      , new_y_
+                      , self.animatedButton.frame.size.width
+                      , self.animatedButton.frame.size.height );
+
+   [ UIView commitAnimations ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Затем изменим код таким образом что бы эти четыре анимации передвинули кнопку по контуру экрана по часовой стрелке. Выполнение этих анимаций просто последовательно:
+-(IBAction)animateButtonAction:( id )sender_
+ {
+   [ self moveUpAnimation ];
+   [ self moveRightAnimation ];
+   [ self moveDownAnimation ];
+   [ self moveLeftAnimation ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ ничего не даст, мы увидим только последнюю анимацию. Правильным решением будет запускать следующую анимацию по завершению предыдущей. Для реализации задуманного нам понадобится установить делегат анимации, и в контексте анимации передать информацию о следующей анимации, в делегате выполнить следующую анимацию из контекста, например так:
+//интерфейс класса для хранения данных следующей анимации
+ @interface JFFNextAnimation : NSObject
+
+ @property ( nonatomic, retain ) UIViewAnimationsExampleViewController* controller;
+ @property ( nonatomic, assign ) SEL nextAnimationSelector;
+
+ @end
+
+ -(void)moveUpAnimation
+ {
+   JFFNextAnimation* next_animation_ = [ JFFNextAnimation new ];
+   //устанавливаем информацию о следующей анимации
+   next_animation_.controller = self;
+   next_animation_.nextAnimationSelector = @selector( moveRightAnimation );
+   //передаем информацию о следующей анимации через контекст
+   [ UIView beginAnimations: nil context: next_animation_ ];
+
+   CGFloat new_y_ = self.animatedButton.frame.origin.y
+    - ( self.view.frame.size.height - button_offset_ * 2 )
+    + self.animatedButton.frame.size.height;
+   self.animatedButton.frame = CGRectMake( self.animatedButton.frame.origin.x
+                      , new_y_
+                      , self.animatedButton.frame.size.width
+                      , self.animatedButton.frame.size.height );
+
+   //выставляем делегата анимации
+   [ UIView setAnimationDelegate: self ];
+
+   [ UIView commitAnimations ];
+ }
+
+//методы moveDownAnimation, moveRightAnimation и moveLeftAnimation аналогичны
+
+ -(void)animationDidStop:( NSString* )animation_id_ finished:( NSNumber* )finished_ context:( void* )context_
+ {
+   //выполняем следующую анимацию
+   JFFNextAnimation* context_object_ = context_;
+   [ context_object_.controller performSelector: context_object_.nextAnimationSelector ];
+   [ context_object_ release ];
+ }
+
+ -(IBAction)animateButtonAction:( id )sender_
+ {
+   //теперь запускаем только первую анимацию
+   [ self moveUpAnimation ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Теперь все работает правильно. Но допустим мы захотим анимацию перемещения кнопки не по часовой, а против часовой стрелке. Тогда нам понадобится изменить код каждого из методов moveUpAnimation, moveDownAnimation, moveRightAnimation и moveLeftAnimation. Это не очень удобно, поэтому перепишем наш код так чтобы эта задача решалась проще.
+
+Шаг 2-ый
+
+ Меняем последовательность вызовов анимаций. Для начала сохраним в контексте не селектор следующей анимации, а все анимации которые нужно выполнить после текущей:
+@interface JFFNextAnimation : NSObject
+
+ @property ( nonatomic, retain ) UIViewAnimationsExampleViewController* controller;
+//храним селекторы анимаций, которые нужно выполнить после текущей анимации в виде строк
+ @property ( nonatomic, retain ) NSMutableArray* nextAnimations;
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+
+ код методов moveUpAnimation, moveDownAnimation, moveRightAnimation и moveLeftAnimation тоже нужно изменить:
+//теперь анимация принимает контекст как аргумент, так как он меняется на ходу
+//и устанавливается отдельно от анимации
+ -(void)moveUpAnimationWithNextAnimation:( JFFNextAnimation* )next_animation_
+ {
+   [ UIView beginAnimations: nil context: next_animation_ ];
+
+   CGFloat new_y_ = self.animatedButton.frame.origin.y
+    - ( self.view.frame.size.height - button_offset_ * 2 )
+    + self.animatedButton.frame.size.height;
+   self.animatedButton.frame = CGRectMake( self.animatedButton.frame.origin.x
+                      , new_y_
+                      , self.animatedButton.frame.size.width
+                      , self.animatedButton.frame.size.height );
+
+   [ UIView setAnimationDelegate: self ];
+
+   [ UIView commitAnimations ];
+ }
+
+ //методы moveDownAnimation, moveRightAnimation и moveLeftAnimation аналогичны
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Делегат анимации так же нужно переделать:
+-(void)animationDidStop:( NSString* )animation_id_ finished:( NSNumber* )finished_ context:( void* )context_
+ {
+   //если контекст пуст - дальше ничего не делаем
+   if ( !context_ )
+    return;
+
+   JFFNextAnimation* context_object_ = context_;
+
+   //получаем селектор следующей анимации
+   NSString* next_animation_string_ = [ context_object_.nextAnimations objectAtIndex: 0 ];
+   next_animation_string_ = [ [ next_animation_string_ retain ] autorelease ];
+   //и удаляем его из списка
+   [ context_object_.nextAnimations removeObjectAtIndex: 0 ];
+
+   SEL next_animation_sel_ = NSSelectorFromString( next_animation_string_ );
+
+   if ( [ context_object_.nextAnimations count ] == 0 )
+   {
+    //если больше нет следующих анимаций
+    //передаем пустой контекст следующей анимации
+    [ context_object_.controller performSelector: next_animation_sel_
+                     withObject: nil ];
+    //освобождаем память
+    [ context_object_ release ];
+   }
+   else
+   {
+    //передаем измененный контекст следующей анимации
+    [ context_object_.controller performSelector: next_animation_sel_
+                     withObject: context_object_ ];
+   }
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ И конечно же результат на который мы работали, теперь последовательность анимаций менять легко:
+-(IBAction)animateButtonAction:( id )sender_
+ {
+   JFFNextAnimation* next_animation_ = [ JFFNextAnimation new ];
+   next_animation_.controller = self;
+   //определяем список следующих анимаций в порядке вызова
+   next_animation_.nextAnimations = [ NSMutableArray arrayWithObjects:
+                    @"moveUpAnimationWithNextAnimation:"
+                    , @"moveLeftAnimationWithNextAnimation:"
+                    , @"moveDownAnimationWithNextAnimation:"
+                    , nil ];
+
+   //вызываем первую анимацию
+   [ self moveRightAnimationWithNextAnimation: next_animation_ ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Весь код полученных результатов можно найти на gihub.
+
+Итоги:
+
+ Поставленую задачу в начале топика мы конечно же решили. Но цена решения высока, код небезопасен(строки вместо селекторов), сложен(запутаная логика делегата селектора и управление памятью контекста), подвержен ошибкам. Постараемся частично исправить ситуацию с помощью (конечно же согласно названию топика) блоков. И так…
+
+Шаг 3-ий
+
+ Переписываем анимации с использованием блокового апи. Первым же делом мы можем удалить класс контекст анимации — JFFNextAnimation и метод делегат анимации, они нам больше не пригодятся. Метод moveUpAnimation упрощается до такого вида:
+-(JFFSimpleBlock)moveUpAnimationBlock
+ {
+   return [ [ ^
+   {
+    CGFloat new_y_ = self.animatedButton.frame.origin.y
+      - ( self.view.frame.size.height - button_offset_ * 2 )
+      + self.animatedButton.frame.size.height;
+    self.animatedButton.frame = CGRectMake( self.animatedButton.frame.origin.x
+                        , new_y_
+                        , self.animatedButton.frame.size.width
+                        , self.animatedButton.frame.size.height );
+   } copy ] autorelease ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Добавим вспомогательный метод создающий блок который выполняет анимацию:
+//создаем блок который вызывает анимацию и имеет
+//блок обратного вызова для оповещения об окончании анимации
+ -(JFFSimpleBlock)animationBlockWithAnimations:( JFFSimpleBlock )animations_
+                   completion:( JFFSimpleBlock )completion_
+ {
+   //отложеный вызов, копируем блок в кучу
+   //так как на момент вызова этого блока текущий стек будет разрушен
+   completion_ = [ [ completion_ copy ] autorelease ];
+   return [ [ ^
+   {
+    [ UIView animateWithDuration: 0.2
+             animations: animations_
+             completion: ^( BOOL finished_ )
+    {
+      if ( completion_ )
+       completion_();
+    } ];
+   } copy ] autorelease ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ И определим последовательность самих анимаций:
+-(IBAction)animateButtonAction:( id )sender_
+ {
+   //определяем блоки анимаций с конца, то есть первый, тот который выполнится поледним
+   JFFSimpleBlock move_left_animation_block_ = [ self moveLeftAnimationBlock ];
+   //completion: - следующая за этой анимация, в этом случае ее нет
+   move_left_animation_block_ = [ self animationBlockWithAnimations: move_left_animation_block_
+                              completion: nil ];
+
+   JFFSimpleBlock move_down_animation_block_ = [ self moveDownAnimationBlock ];
+   //completion: - следующая за этой анимация - "move left"
+   move_down_animation_block_ = [ self animationBlockWithAnimations: move_down_animation_block_
+                              completion: move_left_animation_block_ ];
+
+   JFFSimpleBlock move_right_animation_block_ = [ self moveRightAnimationBlock ];
+   //completion: - следующая за этой анимация - "move down"
+   move_right_animation_block_ = [ self animationBlockWithAnimations: move_right_animation_block_
+                              completion: move_down_animation_block_ ];
+
+   //определяем последним блок который должен выполнится первым
+   JFFSimpleBlock move_up_animation_block_ = [ self moveUpAnimationBlock ];
+   //completion: - следующая за этой анимация - "move right"
+   move_up_animation_block_ = [ self animationBlockWithAnimations: [ self moveUpAnimationBlock ]
+                             completion: move_right_animation_block_ ];
+
+   //выполняем блок с первой анимацией
+   move_up_animation_block_();
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Теперь как и в предыдущем примере (анимаций без блоков), попытаемся поменять последовательность вызовов анимаций. Благо это уже не так сложно как было в нашем самом первом примере, но не будем останавливатся на достигнутом.
+
+Шаг 4-ый
+
+ Забежим немножко наперед и посмотрим на функцию sequenceOfAsyncOperations. Эта функция принимает несколько блоков, абстрагирующих собой ассинхронные операции, ввиде аргументов, и возвращает новый блок, который при вызове будет выполнять блоки аргументы этой функции в заданом порядке. Сам блок асинхронной операции имеет тип JFFAsyncOperation, поэтому немножко изменим функцию animationBlockWithAnimations: согласно этому типу:
+-(JFFAsyncOperation)animationBlockWithAnimations:( JFFSimpleBlock )animations_
+ {
+   return [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
+         , JFFCancelHandler cancel_callback_
+         , JFFDidFinishAsyncOperationHandler done_callback_ )
+   {
+    //отложеный вызов, копируем done_callback_ блок в кучу
+    //так как на момент вызова этого блока текущий стек будет разрушен
+    done_callback_ = [ [ done_callback_ copy ] autorelease ];
+    [ UIView animateWithDuration: 0.2
+             animations: animations_
+             completion: ^( BOOL finished_ )
+    {
+      if ( done_callback_ )
+       done_callback_( [ NSNull null ], nil );
+    } ];
+    return [ [ ^{} copy ] autorelease ];
+   } copy ] autorelease ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ И получим результат:
+-(IBAction)animateButtonAction:( id )sender_
+ {
+   JFFSimpleBlock move_right_animation_block_ = [ self moveRightAnimationBlock ];
+   JFFAsyncOperation move_right_async_block_ = [ self animationBlockWithAnimations: move_right_animation_block_ ];
+
+   JFFSimpleBlock move_up_animation_block_ = [ self moveUpAnimationBlock ];
+   JFFAsyncOperation move_up_async_block_ = [ self animationBlockWithAnimations: move_up_animation_block_ ];
+
+   JFFSimpleBlock move_left_animation_block_ = [ self moveLeftAnimationBlock ];
+   JFFAsyncOperation move_left_async_block_ = [ self animationBlockWithAnimations: move_left_animation_block_ ];
+
+   JFFSimpleBlock move_down_animation_block_ = [ self moveDownAnimationBlock ];
+   JFFAsyncOperation move_down_async_block_ = [ self animationBlockWithAnimations: move_down_animation_block_ ];
+
+   //определяем порядок вызова анимаций последовательностью
+   //передачи аргументов функции - sequenceOfAsyncOperations
+   JFFAsyncOperation result_animation_block_ = sequenceOfAsyncOperations(
+                                      move_right_async_block_
+                                      , move_up_async_block_
+                                      , move_left_async_block_
+                                      , move_down_async_block_
+                                      , nil );
+
+  //вызываем блок, который в свою очередь вызовет все онимации в заданом порядке
+   result_animation_block_( nil, nil, nil );
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ На gihub можно посмотреть весь полученый код.
+
+ На этом пока все. Спасибо за внимание. Если эта тема интересна, то в следующей статье постараюсь рассказать об управлении порядком вызова блоков на примере асинхронных операций.

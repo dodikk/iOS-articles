@@ -1,0 +1,344 @@
+О блоках и их использовании в Objective-C часть 2-ая 
+
+
+ Продолжение топика — О блоках и их использовании в Objective-C часть 1-ая.
+
+ Многие из тех кто впервые сталкивается с блоками (или замыканиями), задают вопрос — «а зачем? Если и без них можно». Да можно. Но использование блоков имеет не мало преимуществ, и первое из них — существенная экономия на количестве кода, а следовательно и на времени написания и поддержке. Дальше буду говорить примерами.
+
+Содержание:
+
+ 1. Работа с контейнерами на примере NSArray.
+ 2. Guards на примере UITableView.
+ 3. Использование блоков вместо классов на примере scheduled операций.
+ 4. Блоки вместо делегатов в UIAlertView.
+ 5. UIView анимации, последовательность анимаций.
+ 6. Асинхронные операции и управление ими. Переписываем пример с анимациями.
+
+1. Работа с контейнерами на примере NSArray.
+
+ Самым часто приводимым примером использования блоков является работа с контейнерами. Этот топик не будет исключением, посмотрим на решения некоторых стандартных задач используя блоки.
+
+Задача1
+
+ Написать функцию создающую массив чисел из массива строк, каждый элемент которого является длинной соответсвующей строки входящего массива.
+
+ Решение1:
+NSArray* stringsLengths( NSArray* strings_ )
+ {
+   NSMutableArray* strings_lengths_ =
+    [ NSMutableArray arrayWithCapacity: [ strings_ count ] ];
+   for ( NSString* string_ in strings_ )
+   {
+    NSNumber* length_ = [ NSNumber numberWithUnsignedInt: [ string_ length ] ];
+    [ strings_lengths_ addObject: length_ ];
+   }
+   return [ NSArray arrayWithArray: strings_lengths_ ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Решение2 с блоками:
+NSArray* stringsLengths( NSArray* strings_ )
+ {
+   return [ strings_ map: ^( id string_ )
+   {
+    return (id)[ NSNumber numberWithUnsignedInt: [ string_ length ] ];
+   } ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Задача2
+
+ Задан массив структур с таким интерфейсом:
+@interface Element : NSObject
+
+ @property ( nonatomic, retain, readonly ) NSArray* subElements;
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+нужно создать новый массив, который содержит все элементы всех subElements.
+
+ Решение1:
+NSArray* allSubElements( NSArray* elements_ )
+ {
+   NSMutableArray* result_ = [ NSMutableArray array ];
+
+   for ( Element* element_ in elements_ )
+   {
+    NSArray* object_items_ = element_.subElements;
+    [ result_ addObjectsFromArray: object_items_ ]; 
+   };
+
+   return [ NSArray arrayWithArray: result_ ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Решение2 с блоками:
+NSArray* allSubElements( NSArray* elements_ )
+ {
+   return [ elements_ flatten: ^( id element_ )
+   {
+    return [ element_ subElements ];
+   } ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Еще несколько удобных расширений класса NSArray можно найти в файле NSArray+BlocksAdditions.m
+
+2. Guards на примере UITableView.
+
+ Если необходимо выполнить несколько подряд апдейтов контента в UITableView с анимациями (например один элемент добавить, другой удалить), то что бы в результирующей анимации все выглядело аккуратно, необходимо эти действия поместить в пределах вызова двух методов: beginUpdates и endUpdates. В таком коде можно допустить несколько ошибок, например такую:
+[ self beginUpdates ];
+
+ [ self.tableView deleteRowsAtIndexPaths: delete_index_pathes_
+             withRowAnimation: UITableViewRowAnimationBottom ];
+
+//здесь ошибка если condition_ == true, мы не вызовем endUpdates
+if ( condition_ )
+   return;
+
+ [ self.tableView insertRowsAtIndexPaths: insert_index_pathes_
+             withRowAnimation: UITableViewRowAnimationTop ];
+
+ [ self endUpdates ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+ В таких случаях, как и вслучае работы с файлами или другими ресурсами которые нужно освобождать, на помощь приходят так называемые охранники-guards, которые легко реализуются с помощью блоков. Добавим расширение класса UITableView с методом withinUpdates:
+@interface UITableView (BlocksAdditions)
+
+ -(void)withinUpdates:( void (^)( void ) )block_;
+
+ @end
+
+ @implementation UITableView (BlocksAdditions)
+
+ -(void)withinUpdates:( void (^)( void ) )block_
+ {
+   [ self beginUpdates ];
+
+   @try
+   {
+    block_();
+   }
+   @finally
+   {
+    [ self endUpdates ];
+   }
+ }
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+
+ исправляем ошибку с анимациями:
+[ self.tableView withinUpdates: ^( void )
+ {
+   [ self.tableView deleteRowsAtIndexPaths: delete_index_pathes_
+              withRowAnimation: UITableViewRowAnimationBottom ];
+
+   if ( condition_ )
+    return;
+
+   [ self.tableView insertRowsAtIndexPaths: insert_index_pathes_
+              withRowAnimation: UITableViewRowAnimationTop ];
+ } ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+3. Использование блоков вместо классов на примере scheduled операций.
+
+ Решаемая задача в этом примере не имеет прямого отношения к блокам, но показывает насколько может быть локанично решена проблема с их применением.
+
+ Те кто тесно работал с методами: – [ NSObject performSelector:withObject:afterDelay: ] и + [ NSTimer timerWithTimeInterval:target:selector:userInfo:repeats: ] полагаю заметили что для «target» будет вызван метод «retain» в момент создания отложеного вызова, и «release», если запланированые действия больше не будут вызыватся. Как показывает практика, такое поведение не очень удобно, так как часто требует написания дополнительной логики по вызову + [ NSObject cancelPreviousPerformRequestsWithTarget: ] и  — [ NSTimer invalidate ] для отмены запланированых вызовов, и последующей возможности освобождения объекта «target».
+ Здесь мы приходим к идее того что, было бы удобней иметь возможность создать отложеный вызов, который бы не вызывал «retain» и самоотменялся при удалении «target» из памяти.
+ Нашей целью будет написание метода работающего описаным выше способом с таким интерфейсом:
+@interface NSObject (Scheduler)
+
+ -(void)performSelector:( SEL )selector_
+          timeInterval:( NSTimeInterval )time_interval_
+             userInfo:( id )user_info_
+             repeats:( BOOL )repeats_;
+
+ @end
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Для начала реализуем класс JFFScheduler с таким интерфейсом:
+//тип блока для отмены запланированого действия
+ typedef void (^JFFCancelScheduledBlock) ( void );
+//тип блока сожержащего запланированое действие
+ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
+
+ @interface JFFScheduler : NSObject
+
+//создать новый "планировщик"
+ +(id)scheduler;
+
+//получить "общий планировщик"
+ +(id)sharedScheduler;
+
+//добавить новое запланированое действие
+//результат - блок для отмены запланированого действия
+ -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_
+              duration:( NSTimeInterval )duration_;
+
+//отмена всех запланированых действий для скедулера, вызывается также в dealloc класса JFFScheduler
+ -(void)cancelAllScheduledOperations;
+
+ @end
+
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Реализация метода -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_ duration:( NSTimeInterval )duration_
+-(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_
+              duration:( NSTimeInterval )duration_
+ {
+   //просто хранящий блок класс
+   JFFSimpleBlockHolder* cancel_block_holder_ = [ JFFSimpleBlockHolder simpleBlockHolder ];
+
+   block_ = [ [ block_ copy ] autorelease ];
+   //заворачиаем объект block_ в блок без аргументов
+   //что бы можно было вызвать его методом performBlock
+   void (^schedule_block_) ( void ) = [ [ ^
+   {
+    block_( cancel_block_holder_.simpleBlock );
+   } copy ] autorelease ];
+
+   //запускаем таймер с блоком вместо "target"
+   __block NSTimer* timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
+                                 target: schedule_block_
+                                selector: @selector( performBlock )
+                                userInfo: nil
+                                repeats: YES ];
+
+   __block NSObject* cancel_ptr_ = nil;
+   __block JFFScheduler* scheduler_ = self;
+
+   //создам блок для отмены запланированого вызова
+   cancel_block_holder_.simpleBlock = ^
+   {
+    if ( scheduler_ )
+    {
+      [ timer_ invalidate ];
+      //удаляем выполненный блок
+      [ scheduler_.cancelBlocks removeObject: cancel_ptr_ ];
+      scheduler_ = nil;
+    }
+   };
+
+   cancel_ptr_ = (id)cancel_block_holder_.simpleBlock;
+   //сохраняем блок отмены для запланированого вызова в dealloc
+   [ self.cancelBlocks addObject: cancel_ptr_ ];
+
+   return cancel_block_holder_.simpleBlock;
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Весь код релизации класса JFFScheduler.
+
+ Дальше что бы все работало, нам понадобится несколько дополнительных методов:
+ 1. — [ NSObject performBlock ] — выполнить блок
+@implementation NSObject (PerformBlock)
+
+//вызвать себя как блок
+ -(void)performBlock
+ {
+   void* self_ = self;
+   JFFSimpleBlock block_ = (JFFSimpleBlock)self_;
+   block_();
+ }
+
+ @end
+
+//пример использования
+ [ ^ {
+   NSLog( @"test" );
+ } performBlock ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+ 2.  — [ NSString numberOfCharacterFromString: ] количество вхождений символа заданого в строке. Пример:
+NSLog( @"num of \":\" - %d", [ @":test:" numberOfCharacterFromString: @":" ] );
+
+* This source code was highlighted with Source Code Highlighter.
+
+ печатает — num of ":" — 2
+
+ 3.  — [ NSObject addOnDeallocBlock: ]  — добавить блок, который должен выполнится при удалении владельца из памяти (в методе dealloc). Пример:
+NSObject* object_ = [ [ NSObject alloc ] init ];
+ [ object_ addOnDeallocBlock: ^
+ {
+   NSLog( @"test" );
+ } ];
+//здеь печатается - test
+ [ object_ release ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Теперь у нас есть все необходимое для реализации первичной задачи главы — написания метода порождающего отложеный вызов после заданого времени, который не вызывает «retain» для «target». Реализация:
+-(void)performSelector:( SEL )selector_
+    timeInterval:( NSTimeInterval )time_interval_
+     userInfo:( id )user_info_ 
+     repeats:( BOOL )repeats_
+ {
+  //валидация аргументов
+  NSString* selector_string_ = NSStringFromSelector( selector_ );
+  NSUInteger num_of_args_ = [ selector_string_ numberOfCharacterFromString: @":" ];
+  NSString* assert_warning_ = [ NSString stringWithFormat: @"selector \"%@\" should has 0 or 1 parameters", selector_string_ ];
+  NSAssert( num_of_args_ == 0 || num_of_args_ == 1, assert_warning_ );
+
+  //что бы избежать циклической ссылки - исользуем в блоке __block self_ вместо self
+  __block id self_ = self;
+
+  //создаем scheduled блок, который вызывает селектор
+  JFFScheduledBlock block_ = ^( JFFCancelScheduledBlock cancel_ )
+  {
+   //отменяем дальнейшее выполнение блока если повторы не нужны
+   if ( !repeats_ )
+   {
+    [ self_ removeOnDeallocBlock: cancel_ ];
+    cancel_();
+   }
+
+   //вызываем селектор
+   num_of_args_ == 1
+    ? objc_msgSend( self_, selector_, user_info_ )
+    : objc_msgSend( self_, selector_ );
+  };
+
+  JFFScheduler* scheduler_ = [ JFFScheduler sharedScheduler ];
+
+  //планируем вызовы блока с заданным интервалом
+  JFFCancelScheduledBlock cancel_ = [ scheduler_ addBlock: block_
+                     duration: time_interval_ ];
+  //отменяем выполнение scheduled блока при удалнии из памяти объекта self
+  [ self addOnDeallocBlock: cancel_ ];
+ }
+
+* This source code was highlighted with Source Code Highlighter.
+
+ И конечно же пример использования этого метода:
+SomeClass* object_ = [ [ SomeClass alloc ] init ];
+
+//создать отложеный вызов метода print
+ [ object_ performSelector: @selector( print )
+        timeInterval: 1.
+          userInfo: nil
+          repeats: NO ];
+
+//после release метод print не вызовется никогда,
+//так как таймер отменяется при удалении object_ из памяти
+ [ object_ release ];
+
+* This source code was highlighted with Source Code Highlighter.
+
+ Итог. Подобный метод в проекте который я пишу существовал и до появления блоков, но его имплементация содержала ровно в 2.5-ой раза больше строк кода и исправлялись не один раз. Реализация же с блоками далась мне с первого раза и до сих пор ошибок не находили. Надеюсь приведеные примеры были для Вас интересны.
+
+ Пока все, остальные главы в следующем топике.
