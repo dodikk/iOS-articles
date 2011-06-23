@@ -1,0 +1,10 @@
+Что вы используете для Continuous Integration?
+
+0.78%  (7)Apache Continuum
+3.12%  (28)Bamboo
+9.7%   (87)CruiseControl
+18.17% (163)Hudson / Jenkins
+11.04% (99)TeamCity
+6.91%  (62)Другой вариант
+50.28% (451)Работаем без Continuous Integration
+Проголосовало 897 человек. Воздержалось 386 человек.
