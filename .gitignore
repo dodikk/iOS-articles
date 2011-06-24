@@ -1,6 +1,7 @@
 .svn
 *.DS_Store
 *.odp#
+*.pdf#
 
 xCode4_commandline/dumps/XCODE4_LEGACY_VARIABLES.txt
 xCode4_commandline/dumps/XCODE4_VARIABLES.txt
