@@ -1,0 +1,18 @@
+–азработка под Apple iOS >  акой unit testing framework вы используете дл€ своих iOS проектов?  
+7.14%
+(3)
+Sen Testing Kit (стандартный, из iOS SDK)
+2.38%
+(1)
+Google toolbox
+2.38%
+(1)
+GHUnit
+2.38%
+(1)
+использую другой Unit test framework
+85.71%
+(36)
+не использую Unit tests в своих iOS проектах
+
+ѕроголосовало 42 человека. ¬оздержалось 110 человек.
